@@ -1,0 +1,26 @@
+<%= simple_form_for(@schedule) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.input :schedule_time %>
+    
+    <%= f.input :interviewee_id do %>
+      <%= f.select :interviewee_id, Interviewee.all.map { |r| [r.first_name + ',' + r.last_name, r.id, { class: r.id }] }, include_blank: false %>
+    <% end %>
+  
+    <%= f.input :user_id do %>
+      <%= f.select :user_id, User.all.map { |r| [r.name, r.id, { class: r.id }] }, include_blank: false %>
+    <% end %>
+
+    <%= f.input :company_id do %>
+      <%= f.select :company_id, Company.all.map { |r| [r.name, r.id, { class: r.id }] }, include_blank: false %>
+    <% end %>
+
+    <%= f.input :status %>
+    <%= f.input :remark %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

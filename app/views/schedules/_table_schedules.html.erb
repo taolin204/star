@@ -1,0 +1,119 @@
+<div class='content' data-pjax-container>
+
+  <div class='page-header'>
+  <h3>List of schedules</h3>
+  </div>
+  <ul class="breadcrumb">
+      <li class=""><a href="/" class="pjax">Dashboard</a></li>
+      <span class="divider">/</span>
+      <li class="active"><a href="/schedules" class="pjax">Schedule Management</a></li>
+  </ul>
+
+  <ul class='nav nav-tabs'>
+
+    <li title="" rel="" class="icon index_collection_link active">
+      <a class="pjax" href="/schedules">
+        <i class="icon-th-list"></i>
+        <span>List</span>
+      </a>
+    </li>
+
+    <li title="" rel="" class="icon history_index_collection_link ">
+      <a class="pjax" href="/schedules/new">
+        <i class="icon-book"></i>
+        <span>Add New</span>
+      </a>
+    </li>
+    
+    <li class="dropdown" style="float:right">
+        <a class="dropdown-toggle" data-toggle="dropdown" href="#">Selected items<b class="caret"></b></a>
+        <ul class="dropdown-menu" style="left:auto; right:0;">
+            <li>
+                <a href="#" onclick="jQuery('#bulk_action').val('export'); jQuery('#bulk_form').submit(); return false;">
+                  Export selected schedules
+                </a>
+            </li>
+            <li>
+                <a href="#" onclick="jQuery('#bulk_action').val('bulk_delete'); jQuery('#bulk_form').submit(); return false;">
+                  Delete selected schedules
+                </a>
+            </li>
+        </ul>
+    </li>
+  </ul>
+
+  <div id='list'>
+  
+    <form accept-charset="UTF-8" action="/schedules/bulk_action" class="form" id="bulk_form" method="post">
+      <div style="margin:0;padding:0;display:inline">
+        <input name="utf8" type="hidden" value="&#x2713;" />
+        <input name="authenticity_token" type="hidden" value="Uw/LvojZYAiuBdJbi3r4NHg+pESESrqhvCHKrRbajn0=" />
+      </div>
+      <input id="bulk_action" name="bulk_action" type="hidden" />
+      <table class='table table-condensed table-striped'>
+        <thead>
+          <tr>
+            <th class='shrink'>
+            <input class='toggle' type='checkbox'>
+            </th>
+            <th class='header pjax headerSortDown id_field integer_type' data-href='/admin/ball?sort=id&amp;sort_reverse=true'>Id</th>
+            <th class='header pjax headerSortDown custom_id_field integer_type' data-href='/schedules?sort=custom_id&amp;sort_reverse=true'>Schedule Date</th>
+            <th class='header pjax  created_at_field datetime_type' data-href='/schedules?sort=created_at'>Interviweee</th>
+            <th class='header pjax  updated_at_field datetime_type' data-href='/schedules?sort=updated_at'>User</th>
+            <th class='header pjax  updated_at_field datetime_type' data-href='/schedules?sort=updated_at'>Company</th>
+            <th class='last shrink'></th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @schedules.each do |schedule| %>
+          <tr>
+            <td>
+            <input id="bulk_ids_" name="bulk_ids[]" type="checkbox" value="116" />
+            </td>
+            <td class='custom_id_field integer_type' title='<%= schedule.id %>'><%= schedule.id %></td>
+            <td class='created_at_field datetime_type' title=<%= schedule.schedule_time %>>
+              <%= schedule.schedule_time %>
+            </td>
+            <td class='updated_at_field datetime_type' title=<%= schedule.interviewee_id %>><%= schedule.interviewee.first_name %>, <%= schedule.interviewee.last_name %></td>
+            <td class='name_field string_type' title='<%= schedule.user_id %>'><%= schedule.user.name %></td>
+            <td class='name_field string_type' title='<%= schedule.company_id %>'><%= schedule.company.name %></td>
+            <td class='last links'>
+            <ul class='inline'>
+                      <li title="Show" rel="tooltip" class="icon show_member_link ">
+                        <a class="pjax" href="/schedules/<%= schedule.id %>">
+                          <i class="icon-info-sign"></i>
+                          <span style='display:none'>Show</span>
+                        </a>
+                      </li>
+                    
+                      <li title="Edit" rel="tooltip" class="icon edit_member_link ">
+                        <a class="pjax" href="/schedules/<%= schedule.id %>/edit">
+                          <i class="icon-pencil"></i>
+                          <span style='display:none'>Edit</span>
+                        </a>
+                      </li>
+                    
+                      <li title="Delete" rel="tooltip" class="icon delete_member_link ">
+                        <a class="pjax" href="/schedules/<%= schedule.id %>/delete">
+                          <i class="icon-remove"></i>
+                          <span style='display:none'>Delete</span>
+                        </a>
+                      </li>
+                    
+                      <li title="History" rel="tooltip" class="icon history_show_member_link ">
+                        <a class="pjax" href="/schedules/<%= schedule.id %>/history">
+                          <i class="icon-book"></i>
+                          <span style='display:none'>History</span>
+                        </a>
+                      </li>
+                    </ul>
+            </td>
+          </tr>
+          <% end %>
+        </tbody>
+      </table>
+      <div class='clearfix total-count'>4 divisions</div>
+    </form>
+
+  </div>
+</div>

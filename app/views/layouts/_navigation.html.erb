@@ -1,0 +1,36 @@
+<% if user_signed_in? %>
+<%= link_to "Star Agent:", root_path, :class => 'brand' %>
+<% else %>
+<%= link_to "Star Agent: The Integrated Solutions for all your business", root_path, :class => 'brand' %>
+<% end %>
+
+<ul class="nav pull-right">
+  <% if user_signed_in? %>
+  <li class="active"><a href="#">Home</a></li>
+  <li class="dropdown">
+    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Administration <b class="caret"></b></a>
+    <ul class="dropdown-menu">
+      <% if current_user.has_role? :admin %>
+      <li><a href="/users">User Admin</a></li>
+      <% end %>
+      <li><a href="/interviewees">Interviewee Admin</a></li>
+      <li><a href="/companies">Company Admin</a></li>
+      <li><a href="/schedules">Schedule Admin</a></li>
+    </ul>
+  </li>
+  <li><a href="#contact">Contact</a></li>
+  <li><a href="#about">About</a></li>
+
+  <% end %>
+
+  <% if user_signed_in? %>
+    <li>
+    <%= link_to 'Logout', destroy_user_session_path, :method=>'delete' %>        
+    </li>
+  <% else %>
+    <li>
+    <%= link_to 'Login', new_user_session_path %>  
+    </li>
+  <% end %>
+
+</ul>

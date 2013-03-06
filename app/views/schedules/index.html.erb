@@ -1,0 +1,52 @@
+<div class="container-fluid">
+  <div class="row-fluid">
+    <%= render 'layouts/sidebar' %>
+
+    <div class='span9'>
+    <div class='row-fluid'>
+    
+  
+    <%= render 'table_schedules' %>
+
+    </div>
+    </div>
+  </div>
+</div>
+
+<!--
+
+<h1>Listing schedules</h1>
+
+<table>
+  <tr>
+    <th>Schedule time</th>
+    <th>Interviewee</th>
+    <th>Agent</th>
+    <th>Company</th>
+    <th>Status</th>
+    <th>Remark</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @schedules.each do |schedule| %>
+  <tr>
+    <td><%= schedule.schedule_time %></td>
+    <td><%= schedule.interviewee_id %></td>
+    <td><%= schedule.user_id %></td>
+    <td><%= schedule.company_id %></td>
+    <td><%= schedule.status %></td>
+    <td><%= schedule.remark %></td>
+    <td><%= link_to 'Show', schedule %></td>
+    <td><%= link_to 'Edit', edit_schedule_path(schedule) %></td>
+    <td><%= link_to 'Destroy', schedule, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Schedule', new_schedule_path %>
+-->
+

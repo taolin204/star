@@ -1,0 +1,29 @@
+test:
+  adapter: sqlite3
+  database: db/test.sqlite3
+  pool: 5
+  timeout: 5000
+
+development:
+  adapter: mysql2
+  encoding: utf8
+  database: star
+  username: root
+  password: password
+  # password: root
+  host: 127.0.0.1
+  port: 3306
+  # socket: /Applications/MAMP/tmp/mysql/mysql.sock -- when dev in mac. use this
+  # socket: /Applications/MAMP/tmp/mysql/mysql.sock
+
+production:
+  adapter: mysql2
+  encoding: utf8
+  reconnect: false
+  pool: 5
+  database: star
+  username: root
+  password: password
+  # socket:   <%=ENV['OPENSHIFT_MYSQL_DB_SOCKET']%>
+  host: 127.0.0.1
+  port: 3306
