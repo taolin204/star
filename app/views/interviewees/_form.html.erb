@@ -7,22 +7,22 @@
     <%= f.input :nationality %>
     <%= f.input :address %>
     <%= f.input :postal_code %>
-    <%= f.input  :gender %>
-    <%= f.input  :race %>
-    <%= f.input  :mobile %>
-    <%= f.input  :telephone %>
-    <%= f.input  :religion %>
-    <%= f.input  :email %>
-    <%= f.input  :dob %>
-    <%= f.input  :specialization %>
-    <%= f.input  :prefer_industry %>
-    <%= f.input  :country, collection: @continents, as: :grouped_select, group_method: :countries %>
-    <%= f.input  :state %>
-    <%= f.input  :willing_travel %>
-    <%= f.input  :willing_relocate %>
-    <%= f.input  :job_nature %>
-    <%= f.input  :language %>
-    <%= f.input  :remark %>
+    <%= f.input :gender %>
+    <%= f.input :race %>
+    <%= f.input :mobile %>
+    <%= f.input :telephone %>
+    <%= f.input :religion %>
+    <%= f.input :email %>
+    <%= f.input :dob %>
+    <%= f.input :specialization %>
+    <%= f.input :prefer_industry %>
+    <%= f.input :country, :collection => @countries, :selected => @interviewee.country %>
+    <%= f.input :state %>
+    <%= f.input :willing_travel, :collection => [:Yes, :No], :selected => @interviewee.willing_travel %>
+    <%= f.input :willing_relocate, :collection => [:Yes, :No], :selected => @interviewee.willing_relocate %>
+    <%= f.input :job_nature %>
+    <%= f.input :language %>
+    <%= f.input :remark %>
   </div>
 
   <div class="form-actions">
