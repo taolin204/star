@@ -1,4 +1,5 @@
 class IntervieweesController < ApplicationController
+  before_filter :authenticate_user!
   # GET /interviewees
   # GET /interviewees.json
 

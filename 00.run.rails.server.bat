@@ -1,0 +1,2 @@
+call rails server
+pause

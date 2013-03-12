@@ -1,13 +1,16 @@
 class CompaniesController < ApplicationController
+  before_filter :authenticate_user!
   # GET /companies
   # GET /companies.json
   def index
-    @companies = Company.all
+    #if current_user.has_role? :agent
+      @companies = Company.all
 
-    respond_to do |format|
-      format.html # index.html.erb
-      format.json { render json: @companies }
-    end
+      respond_to do |format|
+        format.html # index.html.erb
+        format.json { render json: @companies }
+      end
+    #end
   end
 
   # GET /companies/1

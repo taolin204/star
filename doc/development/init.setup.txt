@@ -1,0 +1,20 @@
+Part 1: Create the agent table follows the database design document.
+Create a new interviewee table:
+$ rails generate scaffold Interviewee first_name:string last_name:string nationality:string address:string postal_code:string
+
+Part 2: Create the company table follows the database design document.
+Create a new company table:
+$ rails generate scaffold Company name:string address:string postal_code:string contact_person:string contact_number:string
+
+Part 3: Create the Schedule table follows the database design document.
+Create a new schedule table:
+$rails generate scaffold Schedule schedule_time:date interviewee_id:integer user_id:integer company_id:integer status:string remark:text
+
+Part 4: Add name attribute to User model
+Create a new attribute name for User table:
+$rails generate migration add_name_to_users name:string
+
+Part 5: Add other attributes to Interviewee model
+Create a new attribute name for User table:
+$rails generate migration add_attributes_to_interviewees gender:string race:string mobile:string telephone:string religion:string email:string dob:date specialization:string prefer_industry:string current_country:string current_state_string willing_travel:integer willing_relocate:integer job_nature:string language:string remark:text
+
