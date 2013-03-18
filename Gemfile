@@ -59,3 +59,5 @@ gem 'rolify'
 gem "figaro"
 
 gem 'country_select'
+
+gem "paperclip"
